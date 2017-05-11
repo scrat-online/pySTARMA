@@ -6,10 +6,9 @@ Created by Scrat on 02.03.2017
 """
 
 import numpy as np
-from scipy.stats import t as t_dist
 
 from pySTARMA import utils
-from pySTARMA.utils import set_stationary
+from pySTARMA.utils import _set_stationary
 
 
 class STARMA:
@@ -114,41 +113,41 @@ class STARMA:
         # run kalman filter
         # first iteration
         eps = ts_matrix.copy()
-        self._model = utils.kf_estimation(ts_matrix,
-                                          self._wa_matrices,
-                                          eps,
-                                          self._get_ar_matrix(),
-                                          self._get_ma_matrix(),
-                                          self._max_p_tlag,
-                                          self._max_q_tlag,
-                                          self._max_tlag)
+        self._model = utils._kf_estimation(ts_matrix,
+                                           self._wa_matrices,
+                                           eps,
+                                           self._get_ar_matrix(),
+                                           self._get_ma_matrix(),
+                                           self._max_p_tlag,
+                                           self._max_q_tlag,
+                                           self._max_tlag)
 
         # if ma orders present, do further iteration
         if self._q > 0:
             count = 0
             while self._iter > count:
-                eps[0: self._max_tlag] = utils.residuals_estimation(ts_matrix[0:self._max_tlag],
-                                                                    self._wa_matrices,
-                                                                    self._model['phi'],
-                                                                    self._model['theta'])
+                eps[0: self._max_tlag] = utils._residuals_estimation(ts_matrix[0:self._max_tlag],
+                                                                     self._wa_matrices,
+                                                                     self._model['phi'],
+                                                                     self._model['theta'])
 
-                self._model = utils.kf_estimation(ts_matrix,
-                                                  self._wa_matrices,
-                                                  eps,
-                                                  self._get_ar_matrix(),
-                                                  self._get_ma_matrix(),
-                                                  self._max_p_tlag,
-                                                  self._max_q_tlag,
-                                                  self._max_tlag)
+                self._model = utils._kf_estimation(ts_matrix,
+                                                   self._wa_matrices,
+                                                   eps,
+                                                   self._get_ar_matrix(),
+                                                   self._get_ma_matrix(),
+                                                   self._max_p_tlag,
+                                                   self._max_q_tlag,
+                                                   self._max_tlag)
 
                 count += 1
 
         # write information to model
         self._model['timeseries'] = ts_matrix
-        self._model['residuals'] = utils.residuals_estimation(ts_matrix, self._wa_matrices, self._model['phi'],
-                                                              self._model['theta'])
+        self._model['residuals'] = utils._residuals_estimation(ts_matrix, self._wa_matrices, self._model['phi'],
+                                                               self._model['theta'])
         self._model['sigma2'] = np.trace(self._model['sigma2VarianceMatrix']) / len(self._model['sigma2VarianceMatrix'])
-        self._model['llh'] = utils.loglikelihood(self._model) + np.log(
+        self._model['llh'] = utils._loglikelihood(self._model) + np.log(
             ts_matrix.size * ((self._get_total_parameter()) * len(self._wa_matrices)))
         self._model['bic'] = self._get_total_parameter() * np.log(ts_matrix.size) - 2 * self._model['llh']
         self._model['phi_tvalue'] = self._model['phi'] / self._model['phi_sd']
@@ -163,6 +162,7 @@ class STARMA:
         :param t_value:
         :return: p-value of parameter
         """
+        from scipy.stats import t as t_dist
         df = (self._ts_matrix.size) - (self._get_total_parameter() * len(self._wa_matrices))
         # TODO check calculation of p-values with degrees of freedom
         # p_value = tdist.pdf(abs(tvalue), self._total_parameter())
@@ -181,11 +181,11 @@ class STARMA:
         :param t_lags: Maximum time lags in future 
         :return: Matrix with predictions 
         """
-        return utils.prediction(ts_matrix
-                                , self._wa_matrices
-                                , self._model['phi']
-                                , self._model['theta']
-                                , t_lags)
+        return utils._prediction(ts_matrix
+                                 , self._wa_matrices
+                                 , self._model['phi']
+                                 , self._model['theta']
+                                 , t_lags)
 
     def print_results(self):
         """
@@ -252,5 +252,5 @@ class STARIMA(STARMA):
         """
         Estimate parameter for model
         """
-        self._ts = set_stationary(self._ts, self._d)
+        self._ts = _set_stationary(self._ts, self._d)
         self._fit_model(self._ts)

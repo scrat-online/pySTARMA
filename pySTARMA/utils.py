@@ -11,7 +11,7 @@ import pandas as pd
 from numpy.linalg import inv
 
 
-def loglikelihood(model):
+def _loglikelihood(model):
     """
     Calculates Log-Likelihood of model
     :param ts_matrix: Matrix of timeseries
@@ -30,7 +30,7 @@ def loglikelihood(model):
     return -llh / 2
 
 
-def prediction(ts_matrix, wa_matrices, phi, theta, prediction_lag=1):
+def _prediction(ts_matrix, wa_matrices, phi, theta, prediction_lag=1):
     """
     Calcuates predictions for time series matrix 
     :param ts_matrix: time series matrix
@@ -41,7 +41,7 @@ def prediction(ts_matrix, wa_matrices, phi, theta, prediction_lag=1):
     :return: 
     """
     predictions = ts_matrix[:ts_matrix.shape[0] - prediction_lag, :].copy()
-    residuals = residuals_estimation(predictions, wa_matrices, phi, theta)
+    residuals = _residuals_estimation(predictions, wa_matrices, phi, theta)
 
     for h in range(prediction_lag):
         predict = 0
@@ -58,7 +58,7 @@ def prediction(ts_matrix, wa_matrices, phi, theta, prediction_lag=1):
     return predictions
 
 
-def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag, q_lag, max_t_lag):
+def _kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag, q_lag, max_t_lag):
     """
     Estimate parameters and variance with kalman filtering. After implementation of the Kalman Filter 
     by Cipra & Motykova - Study on Kalman filter in time series anlysis (1987) and 
@@ -134,7 +134,7 @@ def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag
             'sigma2VarianceMatrix': sigma2, }
 
 
-def residuals_estimation(ts_matrix, wa_matrices, phi, theta):
+def _residuals_estimation(ts_matrix, wa_matrices, phi, theta):
     """
     Calculation of residuals for model 
     :param ts_matrix: time series matrix
@@ -159,7 +159,7 @@ def residuals_estimation(ts_matrix, wa_matrices, phi, theta):
     return residuals
 
 
-def set_stationary(ts_matrix, lags):
+def _set_stationary(ts_matrix, lags):
     """
     Differencing of time series
     :param ts_matrix: time series matrix
