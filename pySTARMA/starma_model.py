@@ -8,8 +8,8 @@ Created by Scrat on 02.03.2017
 import numpy as np
 from scipy.stats import t as t_dist
 
-from starma import utils
-from starma.utils import set_stationary
+from pySTARMA import utils
+from pySTARMA.utils import set_stationary
 
 
 class STARMA:

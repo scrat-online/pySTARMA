@@ -23,5 +23,6 @@ setup(
     author_email='andreas.wolf.ke@gmail.com',
     url='https://github.com/scrat-online/pySTARMA.git',
     license=license,
-    packages=find_packages()
+    packages=find_packages(),
+    install_requires=['numpy', 'scipy', 'pandas'],
 )
