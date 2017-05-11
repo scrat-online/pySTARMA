@@ -5,7 +5,7 @@ File: setup
 Created by Scrat on 11.05.2017
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 with open('README.md') as f:
