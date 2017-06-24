@@ -12,6 +12,7 @@ The STARMA class can be used to estimate STARMA models. The method ``STARMA.fit(
 Usage
 ~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: python
+  :linenos:
   
   model = sm.STARMA(p, q, ts_matrix, wa_matrices, iterations(optional))
   model.fit()
