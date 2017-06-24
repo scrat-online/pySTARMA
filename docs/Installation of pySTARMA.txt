@@ -1,0 +1,6 @@
+Installation of pySTARMA 
+The pySTARMA library is installed using pip. To do this, run
+pip install \path to library\pySTARMA
+which contains the setup.py file.
+
+
