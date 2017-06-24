@@ -51,10 +51,10 @@ Attributes
 |                     | parameters                                  |
 +---------------------+---------------------------------------------+
 
+.. _`see Return Values STARMA`:
+
 Returnvalues
 ~~~~~~~~~~~~~~~~~~~~~~
-
-.. _`see Return Values STARMA`:
 
 A dictionary is returned as a 'model' with the following values:
 
@@ -131,10 +131,10 @@ Attributes
 |                     | parameters                                  |
 +---------------------+---------------------------------------------+
 
+.. _`see Returnvalues STARIMA`:
+
 Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
-
-.. _`see Returnvalues STARIMA`:
 
 A dictionary is returned as a 'model' with the following values:
 
