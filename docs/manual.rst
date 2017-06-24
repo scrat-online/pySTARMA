@@ -51,7 +51,9 @@ Attributes
 |                     | parameters                                  |
 +---------------------+---------------------------------------------+
 
+
 .. _`see Return Values STARMA`:
+
 
 Returnvalues
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +133,9 @@ Attributes
 |                     | parameters                                  |
 +---------------------+---------------------------------------------+
 
+
 .. _`see Returnvalues STARIMA`:
+
 
 Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
