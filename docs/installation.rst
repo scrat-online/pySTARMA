@@ -12,10 +12,7 @@ To do this:
 
 .. code-block:: python 
 
-  pip install //path to repository//pySTARMA 
-  
-
-which contains the setup.py file.
+  pip install //path to downloaded repository//pySTARMA 
 
 
 :Authors: Andreas Wolf
