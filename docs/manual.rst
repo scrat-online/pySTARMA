@@ -7,12 +7,11 @@ STARMA object
 
 Description
 ~~~~~~~~~~~~~~~~~~~~~~
-The STARMA class can be used to estimate STARMA models. The method ``STARMA.fit()`` performs the estimation of the parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
+The **STARMA** class can be used to estimate **STARMA** models. The method ``STARMA.fit()`` performs the estimation of the parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
 
 Usage
 ~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: python
-  :linenos:
   
   model = sm.STARMA(p, q, ts_matrix, wa_matrices, iterations(optional))
   model.fit()
@@ -86,7 +85,7 @@ STARIMA object
 
 Description
 ~~~~~~~~~~~~~~~~~~~~~~
-The STARIMA class can be used to estimate STARIMA models. The method ``STARIMA.fit()`` performs the estimation of the parameters. The method ``STARIMA.predict()`` executes the forecast (still in the development stage). The method ``STARIMA.get_model()`` returns the full model. The ``STARIMA.get_item()`` method returns a selected property of the model (`see Return Values STARIMA`_).
+The **STARIMA** class can be used to estimate **STARIMA** models. The method ``STARIMA.fit()`` performs the estimation of the parameters. The method ``STARIMA.predict()`` executes the forecast (still in the development stage). The method ``STARIMA.get_model()`` returns the full model. The ``STARIMA.get_item()`` method returns a selected property of the model (`see Return Values STARIMA`_).
 
 Usage
 ~~~~~~~~~~~~~~~~~~~~~~
