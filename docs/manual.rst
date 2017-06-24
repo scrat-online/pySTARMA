@@ -2,7 +2,7 @@ Manual pySTARMA
 ================
 This file contains the manual for the usage of the pySTARMA library
 
-STARMA object
+SPACE-TIME-ARMA (STARMA-Object)
 -----------------
 
 Description
@@ -80,7 +80,7 @@ A dictionary is returned as a 'model' with the following values:
 |bic                  | Bayessche informationcriterion              |
 +---------------------+---------------------------------------------+
 
-STARIMA object
+SPACE-TIME-ARIMA (STARIMA-Object)
 -----------------
 
 Description
