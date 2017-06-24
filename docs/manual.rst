@@ -1,4 +1,4 @@
-Manual pySTARMA library
+Manual pySTARMA
 ================
 This file contains the manual for the usage of the pySTARMA library
 
