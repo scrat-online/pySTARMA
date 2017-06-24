@@ -134,7 +134,7 @@ Attributes
 Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. _`see Returnvalues STARIMA`:
+.. _`see Return Values STARIMA`:
 
 A dictionary is returned as a 'model' with the following values:
 
