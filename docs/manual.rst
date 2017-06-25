@@ -256,3 +256,8 @@ Returnvalues
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. 
   
   List index 0 --> time lag 0 etc..
+  
+  
+:Authors: Andreas Wolf
+:Date: 2017/06/24
+:Version: 1.0
