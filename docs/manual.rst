@@ -4,10 +4,9 @@ This file contains the manual for the usage of the pySTARMA library
 
 SPACE-TIME-ARMA (STARMA-Object)
 -----------------
-
 Description
 ~~~~~~~~~~~~~~~~~~~~~~
-The **STARMA** class can be used to estimate **STARMA models**. The method ``STARMA.fit()`` performs the estimation of the parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
+The **STARMA class** can be used to estimate **STARMA models**. The method ``STARMA.fit()`` performs the estimation of the parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
 
 Usage
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -84,11 +83,11 @@ SPACE-TIME-ARIMA (STARIMA-Object)
 -----------------
 
 Description
-~~~~~~~~~~~~~~~~~~~~~~
-The **STARIMA** class can be used to estimate **STARIMA models**. The method ``STARIMA.fit()`` performs the estimation of the parameters. The method ``STARIMA.predict()`` executes the forecast (still in the development stage). The method ``STARIMA.get_model()`` returns the full model. The ``STARIMA.get_item()`` method returns a selected property of the model (`see Return Values STARIMA`_).
+~~~~~~~~~~~
+The **STARIMA class** can be used to estimate **STARIMA models**. The method ``STARIMA.fit()`` performs the estimation of the parameters. The method ``STARIMA.predict()`` executes the forecast (still in the development stage). The method ``STARIMA.get_model()`` returns the full model. The ``STARIMA.get_item()`` method returns a selected property of the model (`see Return Values STARIMA`_).
 
 Usage
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
 .. code-block:: python
   
   model = sm.STARIMA(p, q, d, ts_matrix, wa_matrices, iterations(optional))
@@ -120,7 +119,7 @@ Attributes
 +---------------------+---------------------------------------------+
 |q                    | Number or list of moving average parameters |
 +---------------------+---------------------------------------------+
-|d                    | List of numbers of differentiatio           |
+|d                    | List of numbers of differentiations         |
 +---------------------+---------------------------------------------+
 |ts_matrix            | Time series matrix                          |
 +---------------------+---------------------------------------------+
@@ -137,7 +136,6 @@ Return Values
 .. _`see Return Values STARIMA`:
 
 A dictionary is returned as a 'model' with the following values:
-
 
 +---------------------+---------------------------------------------+
 | Value               | Description                                 |
@@ -160,3 +158,51 @@ A dictionary is returned as a 'model' with the following values:
 +---------------------+---------------------------------------------+
 |bic                  | Bayessche informationcriterion              |
 +---------------------+---------------------------------------------+
+
+
+
+Space-Time-Autocorrelation-Function (STACF-Object)
+-----------------
+
+Description
+~~~~~~~~~~~~~~~~~~~~~~
+With the **STACF class**, the space-time-autocorrelation-function can be estimated.
+
+Usage 
+~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+ 
+  stacf = Stacf(ts_matrix, wa_matrices, t_lags)
+  stacf.estimate()
+  stacf.get()
+
+Example
+~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+  
+  from pySTARMA import stacf_stpacf as st
+  
+  #Create instance of STACF
+  stacf = st.Stacf(time_series, weight_matrices, 25)
+
+  #Estimate STACF
+  stacf.estimate()
+
+  #Print estimated STACF
+  print stacf.get()
+
+Attributes
+~~~~~~~~~~~~~~~~~~~~~~
++---------------------+---------------------------------------------+
+| Attribute           | Value                                       |
++=====================+=============================================+
+|ts_matrix            | Time series matrix                          |
++---------------------+---------------------------------------------+
+|wa_matrices          | List of adjecency matrices                  |
++---------------------+---------------------------------------------+
+|t_lags               | Number of time lags                         |
++---------------------+---------------------------------------------+
+
+Returnvalues
+~~~~~~~~~~~~~~~~~~~~~~
+List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. List index 0 --> time lag 0 etc..
