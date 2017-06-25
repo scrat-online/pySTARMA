@@ -206,6 +206,7 @@ Attributes
 Returnvalues
 ~~~~~~~~~~~~~~~~~~~~~~
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. 
+  
   List index 0 --> time lag 0 etc..
 
 Space-Time-Partial-Autocorrelation-Function (STPACF-Object)
@@ -253,4 +254,5 @@ Attributes
 Returnvalues
 ~~~~~~~~~~~~~~~~~~~~~~
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. 
+  
   List index 0 --> time lag 0 etc..
