@@ -206,3 +206,49 @@ Attributes
 Returnvalues
 ~~~~~~~~~~~~~~~~~~~~~~
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. List index 0 --> time lag 0 etc..
+
+Space-Time-Partial-Autocorrelation-Function (STPACF-Object)
+-----------------
+
+Description
+~~~~~~~~~~~~~~~~~~~~~~
+With the **STPACF class**, the space-time-partial-autocorrelation-function can be estimated.
+
+Usage 
+~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+ 
+  stpacf = Stpacf(ts_matrix, wa_matrices, t_lags)
+  stpacf.estimate()
+  stpacf.get()
+
+Example
+~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+  
+  from pySTARMA import stacf_stpacf as st
+  
+  #Create instance of STACF
+  stpacf = st.Stpacf(time_series, weight_matrices, 25)
+
+  #Estimate STACF
+  stpacf.estimate()
+
+  #Print estimated STACF
+  print stpacf.get()
+
+Attributes
+~~~~~~~~~~~~~~~~~~~~~~
++---------------------+---------------------------------------------+
+| Attribute           | Value                                       |
++=====================+=============================================+
+|ts_matrix            | Time series matrix                          |
++---------------------+---------------------------------------------+
+|wa_matrices          | List of adjecency matrices                  |
++---------------------+---------------------------------------------+
+|t_lags               | Number of time lags                         |
++---------------------+---------------------------------------------+
+
+Returnvalues
+~~~~~~~~~~~~~~~~~~~~~~
+List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. List index 0 --> time lag 0 etc..
