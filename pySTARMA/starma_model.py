@@ -12,7 +12,7 @@ from pySTARMA.utils import set_stationary
 
 
 class STARMA:
-    def __init__(self, p, q, ts_matrix, wa_matrices, iterations=2, cls_name='STARMA'):
+    def __init__(self, p, q, ts_matrix, wa_matrices, iterations=2):
         """
         Initialising object/Instance of type STARMA
         :param p: Number or list of auto-regressive-parameters
@@ -22,7 +22,6 @@ class STARMA:
         :param iterations: Number of iterations for kalman filter
         :param cls_name: Name of class or user specified model name
         """
-        self.cls_name = cls_name
         self._p = p
         self._q = q
         self._wa_matrices = wa_matrices
@@ -35,12 +34,12 @@ class STARMA:
 
     def __str__(self):
         if self._model is not None:
-            print 'No model fitted yet'
-        return 'Object of class %s ' \
-               '\n\t To print the results use .print_results() ' \
-               '\n\t AR-Orders: %s ' \
-               '\n\t MA-Orders: %s ' \
-               % (self.cls_name, self._p, self._q)
+            return 'No model fitted yet'
+        else:
+            return 'Object of class STARMA/STARIMA ' \
+                   '\n\t AR-Orders: %s ' \
+                   '\n\t MA-Orders: %s ' \
+                   % (self._p, self._q)
 
     @staticmethod
     def _get_max_tlag(x):
@@ -53,7 +52,6 @@ class STARMA:
             return max(x) + 1
         else:
             return x
-        pass
 
     @staticmethod
     def _get_order_matrix(tlag, slag):
@@ -237,7 +235,6 @@ class STARIMA(STARMA):
         :param wa_matrices: List of adjacency matrices
         :param iterations: Number of iterations for kalman filter
         """
-        self.cls_name = 'STARIMA'
         STARMA.__init__(self, p, q, ts_matrix, wa_matrices, iterations, self.cls_name)
         self._ts = ts_matrix
         self._d = d  # Number of Differencing

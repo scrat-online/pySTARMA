@@ -76,14 +76,13 @@ def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag
     # get variables
     ar = len(ar_matrix[0])
     ma = len(ma_matrix[0])
-    ts_cols = ts_matrix.shape[1]
     dim = ar + ma
 
     # initialise kalman filter
-    h = np.zeros([dim, ts_cols])
+    h = np.zeros([dim, ts_matrix.shape[1]])
     ksi = np.zeros(dim, )
-    p = 100000 * np.eye(dim, dim)
-    sigma2 = (1 / 100000.) * np.eye(ts_cols, ts_cols)
+    p = 100000. * np.eye(dim, dim)
+    sigma2 = (1 / 100000.) * np.eye(ts_matrix.shape[1], ts_matrix.shape[1])
 
     # run the filter
     for t in range(max_t_lag, ts_matrix.shape[0]):
@@ -99,7 +98,7 @@ def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag
             h[it] = (residuals[[t - 1 - ma_matrix[0, it - ar]], :]).dot(weights.T)
 
         # Create
-        nm1 = inv(h.T.dot(p).dot(h) + np.eye(ts_cols, ts_cols))
+        nm1 = inv(h.T.dot(p).dot(h) + np.eye(ts_matrix.shape[1], ts_matrix.shape[1]))
         nu = ts_matrix[t].T - h.T.dot(ksi)
         # Prediction & update equations all - in -ones
         ksi += p.dot(h).dot(nm1).dot(nu)  # 2.28 Cipra & Motykova 1987
@@ -109,7 +108,7 @@ def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag
         residuals[[t]] = ts_matrix[[t]] - (ksi.T.dot(h))  # 2.31 Cipra & Motykova 1987
 
     # Get estimated standard deviation of the parameters
-    sd = np.sqrt(np.trace(sigma2) * np.diag(p) / ts_cols)
+    sd = np.sqrt(np.trace(sigma2) * np.diag(p) / ts_matrix.shape[1])
 
     # Rename and reshape
     phi = np.zeros([p_lag, len(wa_matrices)])
@@ -144,7 +143,7 @@ def residuals_estimation(ts_matrix, wa_matrices, phi, theta):
     :return: residual matrix
     """
     residuals = ts_matrix.copy()
-    for t in range(0, ts_matrix.shape[0]):
+    for t in range(ts_matrix.shape[0]):
         t_lim = min([t, len(phi)])
         for t_lag in range(t_lim):
             for slag in range(0, len(phi[0])):
