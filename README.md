@@ -1,7 +1,7 @@
 # pySTARMA
  
  <div align="center">
-  <img src=" https://github.com/scrat-online/pySTARMA/docs/pySTARMA_Logo.png "><br>
+  <img src="https://github.com/scrat-online/pySTARMA/blob/master/docs/pySTARMA_Logo.png"><br>
 </div>
 
 requires python 2.7
