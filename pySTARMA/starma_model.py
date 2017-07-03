@@ -6,6 +6,7 @@ Created by Scrat on 02.03.2017
 """
 
 import numpy as np
+from prettytable import PrettyTable
 
 from pySTARMA import utils
 from pySTARMA.utils import set_stationary
@@ -189,20 +190,12 @@ class STARMA:
         Print model results to screen
         """
         if self._model != 0:
-            print 'coefficients\tparameter\tstd deviation\tt-value\tpvalue'
+            table = PrettyTable('coefficients', 'parameter', 'std deviation', 't-value', 'p-value')
             for i in range(0, len(self._model['phi'])):
-                for j in range(0, len(self._model['phi'][0])):
-                    if self._model['phi'][i][j] != 0:
-                        print 'phi%s.%s\t%.8f\t%.8f\t%.8f\t%s' % (
-                            i + 1, j, self._model['phi'][i][j], self._model['phi_sd'][i][j],
-                            self._model['phi_tvalue'][i][j],
-                            self._model['phi_pvalue'][i][j])
+                    table.add_row(i)
             for i in range(0, len(self._model['theta'])):
-                for j in range(0, len(self._model['theta'][0])):
-                    if self._model['theta'][i][j] != 0:
-                        print 'theta%s.%s\t%.8f\t%.8f\t%.8f\t%s' % (
-                            i + 1, j, self._model['theta'][i][j], self._model['theta_sd'][i][j],
-                            self._model['theta_tvalue'][i][j], self._model['theta_pvalue'][i][j])
+                    table.add_row(i)
+            print table
             print 'sigma2 is estimated as:\t\t %s' % self._model['sigma2']
             print 'standard error is estimated as:\t\t %s' % np.sqrt(self._model['sigma2'])
             print 'BIC is estimated as:\t\t %s' % self._model['bic']

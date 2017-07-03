@@ -24,5 +24,5 @@ setup(
     url='https://github.com/scrat-online/pySTARMA.git',
     license=license,
     packages=['pySTARMA'],
-    install_requires=['numpy', 'scipy', 'pandas'],
+    install_requires=['numpy', 'scipy', 'pandas', 'prettytable'],
 )
