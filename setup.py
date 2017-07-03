@@ -16,7 +16,7 @@ with open('LICENSE') as f:
 
 setup(
     name='pySTARMA',
-    version='0.1.0',
+    version='0.1.1',
     description='',
     long_description=readme,
     author='Andreas Wolf',
@@ -24,5 +24,5 @@ setup(
     url='https://github.com/scrat-online/pySTARMA.git',
     license=license,
     packages=['pySTARMA'],
-    install_requires=['numpy', 'scipy', 'pandas', 'prettytable'],
+    install_requires=['numpy', 'pandas', 'prettytable'],
 )

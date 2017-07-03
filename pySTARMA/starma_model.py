@@ -228,7 +228,7 @@ class STARIMA(STARMA):
         :param wa_matrices: List of adjacency matrices
         :param iterations: Number of iterations for kalman filter
         """
-        STARMA.__init__(self, p, q, ts_matrix, wa_matrices, iterations, self.cls_name)
+        STARMA.__init__(self, p, q, ts_matrix, wa_matrices, iterations)
         self._ts = ts_matrix
         self._d = d  # Number of Differencing
 
