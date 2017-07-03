@@ -190,12 +190,12 @@ class STARMA:
         Print model results to screen
         """
         if self._model != 0:
-            table = PrettyTable('coefficients', 'parameter', 'std deviation', 't-value', 'p-value')
-            for i in range(0, len(self._model['phi'])):
-                    table.add_row(i)
-            for i in range(0, len(self._model['theta'])):
-                    table.add_row(i)
-            print table
+            #table = PrettyTable(['coefficients', 'parameter', 'std deviation', 't-value', 'p-value'])
+            #for i in range(0, len(self._model['phi'])):
+            #        table.add_row(i)
+            #for i in range(0, len(self._model['theta'])):
+            #        table.add_row(i)
+            #print table
             print 'sigma2 is estimated as:\t\t %s' % self._model['sigma2']
             print 'standard error is estimated as:\t\t %s' % np.sqrt(self._model['sigma2'])
             print 'BIC is estimated as:\t\t %s' % self._model['bic']
