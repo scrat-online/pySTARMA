@@ -58,6 +58,7 @@ class Stacf:
 
     def estimate(self):
         self._stacf = self._st_acf(self._ts_matrix, self._wa_matrices, self._t_lags)
+        return self._stacf
 
     def get(self):
         return self._stacf
@@ -134,4 +135,4 @@ class Stpacf(Stacf):
 
     def estimate(self):
         self._stacf = self._st_pacf()
-
+        return self._stacf
