@@ -1,12 +1,12 @@
 Manual pySTARMA
 ================
-This file contains the manual for the usage of the pySTARMA library
+This file contains the manual for using the pySTARMA library
 
-SPACE-TIME-ARMA (STARMA-Object)
+SPACE TIME ARMA (STARMA Object)
 -----------------
 Description
 ~~~~~~~~~~~~~~~~~~~~~~
-The **STARMA class** can be used to estimate **STARMA models**. The method ``STARMA.fit()`` performs the estimation of the parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
+The **STARMA class** can be used to estimate **STARMA models**. The method ``STARMA.fit()`` performs the estimation of the model parameters. The method ``STARMA.predict()`` executes the forecast (still in the development stage). The method ``STARMA.get_model()`` returns the full model. The ``STARMA.get_item()`` method returns a selected property of the model (`see Return Values STARMA`_).
 
 Usage
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +37,7 @@ Attributes
 +---------------------+---------------------------------------------+
 | Attribute           | Value                                       |
 +=====================+=============================================+
-|p                    |Number or list of autoregressive parameters  |
+|p                    | Number or list of autoregressive parameters |
 +---------------------+---------------------------------------------+
 |q                    | Number or list of moving average parameters |
 +---------------------+---------------------------------------------+
@@ -50,7 +50,7 @@ Attributes
 |                     | parameters                                  |
 +---------------------+---------------------------------------------+
 
-Returnvalues
+Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. _`see Return Values STARMA`:
@@ -76,10 +76,10 @@ A dictionary is returned as a 'model' with the following values:
 +---------------------+---------------------------------------------+
 |sigma2               | Standard deviation                          |
 +---------------------+---------------------------------------------+
-|bic                  | Bayessche informationcriterion              |
+|bic                  | Bayesian information criterion              |
 +---------------------+---------------------------------------------+
 
-SPACE-TIME-ARIMA (STARIMA-Object)
+SPACE TIME ARIMA (STARIMA Object)
 -----------------
 
 Description
@@ -115,7 +115,7 @@ Attributes
 +---------------------+---------------------------------------------+
 | Attribute           | Value                                       |
 +=====================+=============================================+
-|p                    |Number or list of autoregressive parameters  |
+|p                    | Number or list of autoregressive parameters |
 +---------------------+---------------------------------------------+
 |q                    | Number or list of moving average parameters |
 +---------------------+---------------------------------------------+
@@ -156,12 +156,12 @@ A dictionary is returned as a 'model' with the following values:
 +---------------------+---------------------------------------------+
 |sigma2               | Standard deviation                          |
 +---------------------+---------------------------------------------+
-|bic                  | Bayessche informationcriterion              |
+|bic                  | Bayesian information criterion              |
 +---------------------+---------------------------------------------+
 
 
 
-Space-Time-Autocorrelation-Function (STACF-Object)
+Space Time Autocorrelation Function (STACF Object)
 -----------------
 
 Description
@@ -203,13 +203,13 @@ Attributes
 |t_lags               | Number of time lags                         |
 +---------------------+---------------------------------------------+
 
-Returnvalues
+Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. 
   
   List index 0 --> time lag 0 etc..
 
-Space-Time-Partial-Autocorrelation-Function (STPACF-Object)
+Space Time Partial Autocorrelation Function (STPACF-Object)
 -----------------
 
 Description
@@ -251,7 +251,7 @@ Attributes
 |t_lags               | Number of time lags                         |
 +---------------------+---------------------------------------------+
 
-Returnvalues
+Return Values
 ~~~~~~~~~~~~~~~~~~~~~~
 List with lists for each spatial lag. Spatial lags lists contains the estimated spatial autocorrelation for the corresponding time lag. 
   
