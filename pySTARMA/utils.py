@@ -58,7 +58,7 @@ def prediction(ts_matrix, wa_matrices, phi, theta, prediction_lag=1):
     return predictions
 
 
-def kf_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag, q_lag, max_t_lag):
+def kalmanfilter_estimation(ts_matrix, wa_matrices, residuals, ar_matrix, ma_matrix, p_lag, q_lag, max_t_lag):
     """
     Estimate parameters and variance with kalman filtering. After implementation of the Kalman Filter 
     by Cipra & Motykova - Study on Kalman filter in time series anlysis (1987) and 

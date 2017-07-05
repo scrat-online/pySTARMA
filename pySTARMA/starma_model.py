@@ -111,14 +111,14 @@ class STARMA:
         # run kalman filter
         # first iteration
         eps = ts_matrix.copy()
-        self._model = utils.kf_estimation(ts_matrix,
-                                          self._wa_matrices,
-                                          eps,
-                                          self._get_ar_matrix(),
-                                          self._get_ma_matrix(),
-                                          self._max_p_tlag,
-                                          self._max_q_tlag,
-                                          self._max_tlag)
+        self._model = utils.kalmanfilter_estimation(ts_matrix,
+                                                    self._wa_matrices,
+                                                    eps,
+                                                    self._get_ar_matrix(),
+                                                    self._get_ma_matrix(),
+                                                    self._max_p_tlag,
+                                                    self._max_q_tlag,
+                                                    self._max_tlag)
 
         # if ma orders present, do further iteration
         if self._q > 0:
@@ -129,14 +129,14 @@ class STARMA:
                                                                     self._model['phi'],
                                                                     self._model['theta'])
 
-                self._model = utils.kf_estimation(ts_matrix,
-                                                  self._wa_matrices,
-                                                  eps,
-                                                  self._get_ar_matrix(),
-                                                  self._get_ma_matrix(),
-                                                  self._max_p_tlag,
-                                                  self._max_q_tlag,
-                                                  self._max_tlag)
+                self._model = utils.kalmanfilter_estimation(ts_matrix,
+                                                            self._wa_matrices,
+                                                            eps,
+                                                            self._get_ar_matrix(),
+                                                            self._get_ma_matrix(),
+                                                            self._max_p_tlag,
+                                                            self._max_q_tlag,
+                                                            self._max_tlag)
 
                 count += 1
 
