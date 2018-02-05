@@ -115,9 +115,9 @@ class Stpacf(Stacf):
 
         :return: Matrix
         """
-        print 'create yule-walker matrix'
+        print('create yule-walker matrix')
         YWmat = self._st_mat()
-        print 'create yule-walker vector'
+        print('create yule-walker vector')
         YWvec = self._st_vec()
 
         s_lag = self._s_lags
@@ -125,7 +125,7 @@ class Stpacf(Stacf):
 
         st_pacf = np.zeros((t_lag, s_lag))
 
-        print 'solve yule-walker equitation'
+        print('solve yule-walker equitation')
         for t in range(0, t_lag):
             for s in range(0, s_lag):
                 index = t * s_lag + s

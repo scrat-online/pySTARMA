@@ -30,7 +30,7 @@ Example
   model.fit()
 
   #Print explicit item 
-  print model.get_item('bic')
+  print(model.get_item('bic'))
   
 Attributes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -108,7 +108,7 @@ Example
   model.fit()
 
   #Print explicit item 
-  print model.get_item('bic')
+  print(model.get_item('bic'))
   
 Attributes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -189,7 +189,7 @@ Example
   stacf.estimate()
 
   #Print estimated STACF
-  print stacf.get()
+  print(stacf.get())
 
 Attributes
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -237,7 +237,7 @@ Example
   stpacf.estimate()
 
   #Print estimated STACF
-  print stpacf.get()
+  print(stpacf.get())
 
 Attributes
 ~~~~~~~~~~~~~~~~~~~~~~

@@ -105,7 +105,7 @@ class STARMA:
         """
         Implementation of the Kalman Filter by Cipra & Motykova - Study on Kalman filter in time series anlysis (1987) and Cheysson - starma: Modelling Space Time AutoRegressive Moving Average (STARMA) Processes
         """
-        print 'Model fitting in progress'
+        print('Model fitting in progress')
         print(self.__str__())
 
         # run kalman filter
@@ -196,10 +196,10 @@ class STARMA:
             #for i in range(0, len(self._model['theta'])):
             #        table.add_row(i)
             #print table
-            print 'sigma2 is estimated as:\t\t %s' % self._model['sigma2']
-            print 'standard error is estimated as:\t\t %s' % np.sqrt(self._model['sigma2'])
-            print 'BIC is estimated as:\t\t %s' % self._model['bic']
-            print 'LogLikelihood is estimated as:\t\t %s' % self._model['llh']
+            print('sigma2 is estimated as:\t\t %s' % self._model['sigma2'])
+            print('standard error is estimated as:\t\t %s' % np.sqrt(self._model['sigma2']))
+            print('BIC is estimated as:\t\t %s' % self._model['bic'])
+            print('LogLikelihood is estimated as:\t\t %s' % self._model['llh'])
 
     def get_model(self):
         """
