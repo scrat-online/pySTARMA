@@ -162,12 +162,12 @@ def set_stationary(ts_matrix, lags):
     """
     Differencing of time series
     :param ts_matrix: time series matrix
-    :param lags: list of differencing 
+    :param lags: list of differencing
     :return: difference time series matrix
     """
     time_series_matrix = pd.DataFrame(ts_matrix).copy()
     for t_lag in lags:
-        time_series_matrix -= time_series_matrix.shift(int(t_lag))
+        time_series_matrix -= time_series_matrix.shift(t_lag)
     time_series_matrix.dropna(inplace=True)
     return time_series_matrix.as_matrix()
 
